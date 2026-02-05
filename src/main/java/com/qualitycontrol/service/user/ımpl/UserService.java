@@ -1,5 +1,6 @@
 package com.qualitycontrol.service.user.ımpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public class UserService implements IUserService {
 		if(optional.isPresent()) {			
 			userRepository.delete(optional.get());
 		}
+	}
+
+	@Override
+	public List<User> getUserList() {
+		return userRepository.findAll();
 	}
 
 }

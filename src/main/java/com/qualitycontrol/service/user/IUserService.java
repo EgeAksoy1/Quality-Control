@@ -1,6 +1,8 @@
 package com.qualitycontrol.service.user;
 
 
+import java.util.List;
+
 import com.qualitycontrol.model.User;
 
 public interface IUserService {
@@ -9,6 +11,7 @@ public interface IUserService {
 	
 	public User updateUser(Integer id, User u);
 	
-	public void deleteUser (Integer id);	
+	public void deleteUser (Integer id);
 	
+	public List<User> getUserList();
 }
