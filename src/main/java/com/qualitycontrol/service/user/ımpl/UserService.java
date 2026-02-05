@@ -34,4 +34,12 @@ public class UserService implements IUserService {
 		return null;
 	}
 
+	@Override
+	public void deleteUser(Integer id) {
+		Optional<User> optional = userRepository.findById(id);;
+		if(optional.isPresent()) {			
+			userRepository.delete(optional.get());
+		}
+	}
+
 }
