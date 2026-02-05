@@ -1,7 +1,9 @@
 package com.qualitycontrol.controller.user.ımpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,12 @@ public class UserController implements IUserController{
 	@Override
 	public User saveUser(@RequestBody User u) {
 		return userService.saveUser(u);
+	}
+
+	@PutMapping(path = "/update/{id}")
+	@Override
+	public User updateUser(@PathVariable(name = "id") Integer id, @RequestBody User u) {
+		return userService.updateUser(id, u);
 	}
 
 }
