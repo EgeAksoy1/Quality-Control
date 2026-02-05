@@ -1,6 +1,7 @@
 package com.qualitycontrol.service.product.ımpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,14 @@ public class ProductService implements IProductService{
 	@Override
 	public List<Product> getProductList() {
 		return productRepository.findAll();
+	}
+
+	@Override
+	public void deleteProduct(Integer id) {
+		Optional<Product> optional = productRepository.findById(id);
+		if(optional.isPresent()) {
+			productRepository.delete(optional.get());
+		}
 	}
 
 }

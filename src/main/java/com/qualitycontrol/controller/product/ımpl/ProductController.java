@@ -3,7 +3,9 @@ package com.qualitycontrol.controller.product.ımpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,12 @@ public class ProductController implements IProductController{
 	@Override
 	public List<Product> getProductList() {
 		return productService.getProductList();
+	}
+
+	@DeleteMapping(path = "/delete/{id}")
+	@Override
+	public void deleteProduct(@PathVariable(name = "id") Integer id) {
+		productService.deleteProduct(id);
 	}
 
 }

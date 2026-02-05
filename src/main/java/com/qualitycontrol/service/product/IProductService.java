@@ -9,4 +9,6 @@ public interface IProductService {
 	public Product saveProduct(Product p);
 	
 	public List<Product> getProductList();
+	
+	public void deleteProduct(Integer id);
 }
