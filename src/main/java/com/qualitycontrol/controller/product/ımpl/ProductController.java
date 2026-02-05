@@ -1,5 +1,7 @@
 package com.qualitycontrol.controller.product.ımpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +24,11 @@ public class ProductController implements IProductController{
 	public Product saveProduct(@RequestBody Product p) {
 
 		return productService.saveProduct(p);
+	}
+
+	@Override
+	public List<Product> getProductList() {
+		return productService.getProductList();
 	}
 
 }

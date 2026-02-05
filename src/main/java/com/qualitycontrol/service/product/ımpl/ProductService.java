@@ -1,5 +1,7 @@
 package com.qualitycontrol.service.product.ımpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class ProductService implements IProductService{
 	@Override
 	public Product saveProduct(Product p) {
 		return productRepository.save(p);
+	}
+
+	@Override
+	public List<Product> getProductList() {
+		return productRepository.findAll();
 	}
 
 }

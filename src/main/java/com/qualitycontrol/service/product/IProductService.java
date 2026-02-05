@@ -1,8 +1,12 @@
 package com.qualitycontrol.service.product;
 
+import java.util.List;
+
 import com.qualitycontrol.model.Product;
 
 public interface IProductService {
 
 	public Product saveProduct(Product p);
+	
+	public List<Product> getProductList();
 }
