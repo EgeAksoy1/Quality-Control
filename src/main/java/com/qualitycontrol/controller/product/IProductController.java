@@ -11,4 +11,6 @@ public interface IProductController {
 	public List<Product> getProductList();
 	
 	public void deleteProduct(Integer id);
+	
+	public Product updateProduct(Integer id, Product p);
 }
