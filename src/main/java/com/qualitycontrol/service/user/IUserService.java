@@ -14,4 +14,6 @@ public interface IUserService {
 	public void deleteUser (Integer id);
 	
 	public List<User> getUserList();
+	
+	public User getUserLogin(User u);
 }

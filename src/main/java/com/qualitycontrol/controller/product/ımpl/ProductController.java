@@ -3,6 +3,7 @@ package com.qualitycontrol.controller.product.ımpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,12 +17,13 @@ import com.qualitycontrol.controller.product.IProductController;
 import com.qualitycontrol.model.Product;
 import com.qualitycontrol.service.product.IProductService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/rest/api/product")
 public class ProductController implements IProductController{
 
 	@Autowired
-	IProductService productService;
+	private IProductService productService;
 	
 	@PostMapping(path = "/save")
 	@Override

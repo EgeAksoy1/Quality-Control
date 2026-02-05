@@ -14,7 +14,7 @@ import com.qualitycontrol.service.user.IUserService;
 public class UserService implements IUserService {
 
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	@Override
 	public User saveUser(User u) {
@@ -46,6 +46,17 @@ public class UserService implements IUserService {
 	@Override
 	public List<User> getUserList() {
 		return userRepository.findAll();
+	}
+
+	@Override
+	public User getUserLogin(User u) {
+		List<User> controllerList = getUserList();
+		for(User c: controllerList) {
+			if(c.getUsername().equals(u.getUsername()) && c.getPassword().equals(u.getPassword())) {
+				return c;
+			}
+		}
+		return null;
 	}
 
 }

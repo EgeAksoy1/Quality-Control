@@ -3,6 +3,7 @@ package com.qualitycontrol.controller.user.ımpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,13 +18,14 @@ import com.qualitycontrol.model.User;
 import com.qualitycontrol.service.user.IUserService;
 
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/rest/api/user")
 public class UserController implements IUserController{
 
 	@Autowired
-	IUserService userService;
-	
+	private IUserService userService;
+
 	@PostMapping(path = "/save")
 	@Override
 	public User saveUser(@RequestBody User u) {
@@ -46,6 +48,12 @@ public class UserController implements IUserController{
 	@Override
 	public List<User> getUserList() {
 		return userService.getUserList();
+	}
+
+	@GetMapping(path = "/login")
+	@Override
+	public User getUserLogin(@RequestBody User u) {
+		return userService.getUserLogin(u);
 	}
 
 }

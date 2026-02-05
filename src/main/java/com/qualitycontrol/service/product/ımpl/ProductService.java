@@ -15,7 +15,7 @@ import com.qualitycontrol.service.product.IProductService;
 public class ProductService implements IProductService{
 
 	@Autowired
-	ProductRepository productRepository;
+	private ProductRepository productRepository;
 	
 	@Override
 	public Product saveProduct(Product p) {
