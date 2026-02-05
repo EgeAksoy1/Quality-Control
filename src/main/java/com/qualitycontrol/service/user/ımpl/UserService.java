@@ -49,10 +49,10 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public User getUserLogin(User u) {
+	public User getUserLogin(String username, String password) {
 		List<User> controllerList = getUserList();
 		for(User c: controllerList) {
-			if(c.getUsername().equals(u.getUsername()) && c.getPassword().equals(u.getPassword())) {
+			if(c.getUsername().equals(username) && c.getPassword().equals(password)) {
 				return c;
 			}
 		}

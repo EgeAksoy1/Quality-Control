@@ -50,10 +50,10 @@ public class UserController implements IUserController{
 		return userService.getUserList();
 	}
 
-	@GetMapping(path = "/login")
+	@GetMapping(path = "/login/{username}/{password}")
 	@Override
-	public User getUserLogin(@RequestBody User u) {
-		return userService.getUserLogin(u);
+	public User getUserLogin(@PathVariable(name = "username") String username, @PathVariable(name = "password") String password) {
+		return userService.getUserLogin(username, password);
 	}
 
 }

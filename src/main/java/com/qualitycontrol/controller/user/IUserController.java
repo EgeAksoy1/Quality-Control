@@ -15,5 +15,5 @@ public interface IUserController {
 	
 	public List<User> getUserList();
 	
-	public User getUserLogin(User u);
+	public User getUserLogin(String username, String password);
 }
