@@ -50,4 +50,10 @@ public class ProductController implements IProductController{
 		return productService.updateProduct(id, p);
 	}
 
+	@GetMapping(path = "/search/{columnName}/{value}")
+	@Override
+	public List<Product> getProductListByParam(@PathVariable(name = "columnName") String columnName, @PathVariable(name = "value") String value) {
+		return productService.getProductListByParam(columnName, value);
+	}
+
 }

@@ -48,4 +48,9 @@ public class ProductService implements IProductService{
 		return null;
 	}
 
+	@Override
+	public List<Product> getProductListByParam(String columnName, String value) {
+		return productRepository.listColumnandValue(columnName, value);
+	}
+
 }

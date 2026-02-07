@@ -13,4 +13,6 @@ public interface IProductService {
 	public void deleteProduct(Integer id);
 	
 	public Product updateProduct(Integer id, Product p);
+	
+	public List<Product> getProductListByParam(String columnName, String value);
 }
