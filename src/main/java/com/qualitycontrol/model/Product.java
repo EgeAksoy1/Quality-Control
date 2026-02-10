@@ -1,7 +1,8 @@
 package com.qualitycontrol.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -48,7 +49,8 @@ public class Product {
 	@Column(name = "colour_B", nullable = true)
 	private Double colourB;
 	
+	@CreationTimestamp 
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "product_date", nullable = true)
-	private Date productDate;
+	@Column(name = "product_date", nullable = true, updatable = false)
+	private LocalDate productDate;
 }
